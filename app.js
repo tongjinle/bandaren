@@ -23,7 +23,7 @@ App({
           let token = data.token;
           wx.setStorageSync("token", token);
 
-          wx.navigateTo({ url: "./pages/game/game" });
+          // wx.navigateTo({ url: "./pages/game/game" });
           // wx.navigateTo({ url: "./pages/logs/logs" });
         });
         // getUserInfo(code, data => {

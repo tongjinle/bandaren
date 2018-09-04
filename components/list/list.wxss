@@ -1,0 +1,38 @@
+/* components/list/list.wxss */
+/* list组建 */
+.list-components{
+  display: flex;
+  justify-content: flex-start;
+  padding: 20rpx;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+/* list-left-area */
+.list-components .list-left-area{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 30rpx;
+}
+.list-left-area .list-image{
+  width: 160rpx;
+  height: 160rpx;
+}
+
+/* list-right-area */
+.list-components .list-right-area{
+  font-size: 28rpx;
+}
+.list-right-area .author-name{
+  font-weight: 600;
+  font-size: 32rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.list-right-area .aciton .mine{
+  padding-right:  10rpx;
+}
+.list-right-area .aciton .total{
+  padding-left:  10rpx;
+}
+

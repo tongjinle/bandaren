@@ -1,0 +1,10 @@
+<view class='header-container'>
+  <view class='header-left-area'>
+    <view class='icon'></view>
+    <view class='value'>{{times}}</view>
+  </view>
+  <view class='header-right-area'>
+    <view class='sign-in-btn' bindtap='signIn'>签到</view>
+    <view class='share-btn' bindtap='share'>分享</view>
+  </view>
+</view>

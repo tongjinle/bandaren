@@ -1,0 +1,51 @@
+
+
+<view class="caption-wrap">
+  <i-collapse name="{{name}}" accordion>
+    <i-collapse-item title="史蒂夫·乔布斯" name="name1">
+      <view slot="title">
+        <home-list/>
+      </view>
+      <view slot="content">
+        <home-header></home-header>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
+          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item class='swiper-item'>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </i-collapse-item>
+    <i-collapse-item title="斯蒂夫·盖瑞·沃兹尼亚克" name="name2">
+      <view slot="title">
+        <home-list/>
+      </view>
+      <view slot="content">
+        <home-header></home-header>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
+          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item class='swiper-item'>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </i-collapse-item>
+    <i-collapse-item name="name3">
+      <view slot="title">
+        <home-list/>
+      </view>
+      <view slot="content">
+        <home-header></home-header>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
+          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item class='swiper-item'>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </i-collapse-item>
+  </i-collapse>
+</view>

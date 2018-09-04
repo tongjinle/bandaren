@@ -1,0 +1,43 @@
+/* components/header/header.wxss */
+/* header */
+.header-container{
+  display: flex;
+  height: 80rpx;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+/* header-left-area */
+.header-container .header-left-area{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header-left-area .icon{
+  background: teal;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.header-left-area .value{
+  font-size: 28rpx;
+}
+
+/* header-right-area  */
+.header-container .header-right-area{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header-right-area .sign-in-btn{
+  font-size: 28rpx;
+  margin-right: 20rpx
+}
+.header-right-area .share-btn{
+  font-size: 28rpx;
+  margin-right: 20rpx
+}
