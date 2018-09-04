@@ -1,0 +1,18 @@
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.head-bar {
+  display: flex;
+  padding: 0 10rpx;
+}
+
+.head-bar .left {
+  display: flex;
+}
+
+image.point {
+  width: 40rpx;
+  height: 40rpx;
+}

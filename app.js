@@ -1,15 +1,34 @@
 //app.js
+const regeneratorRuntime = require("./utils/runtime.js");
+const { getToken, test } = require("./utils/api");
+
 App({
   onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
     wx.setStorageSync("logs", logs);
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let { code } = res;
+        console.log({ code });
+        test(data => {
+          console.log("test data: ", data);
+        });
+
+        getToken(code, data => {
+          console.log("getToken", data);
+          let token = data.token;
+          wx.setStorageSync("token", token);
+
+          wx.navigateTo({ url: "./pages/game/game" });
+          // wx.navigateTo({ url: "./pages/logs/logs" });
+        });
+        // getUserInfo(code, data => {
+        //   console.log(data);
+        // });
       }
     });
     // 获取用户信息
