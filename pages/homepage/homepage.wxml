@@ -1,51 +1,36 @@
-
-
-<view class="caption-wrap">
-  <i-collapse name="{{name}}" accordion>
-    <i-collapse-item title="史蒂夫·乔布斯" name="name1">
+<i-collapse name="{{current}}" accordion wx:if='{{!isEmpty}}'>
+  <block wx:for='{{list}}' wx:key='{{index}}' wx:for-item='card'>
+    <i-collapse-item name="{{index}}" i-class='card'>
       <view slot="title">
-        <home-list/>
+        <home-list imgUrl='{{card.headerImg}}' mine='{{card.mine}}' total='{{card.total}}' username='{{card.username}}' />
       </view>
       <view slot="content">
-        <home-header></home-header>
+        <home-header times='{{times}}'></home-header>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
-          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+          <block wx:for="{{card.imgList}}" wx:key="{{index}}">
             <swiper-item class='swiper-item'>
+              <view class='swpier-desc'>
+                <view class='left'>
+                  <view class='username'>{{card.username}}</view>
+                  <view class='total'>{{card.total}}</view>
+                </view>
+                <view class='right'>
+                  <view class='mine'>{{card.mine}}</view>
+                  <view class='action'>按钮</view>
+                </view>
+                <view class='point'>还少多少热度打开下一张图片</view>
+              </view>
               <image src="{{item}}" class="slide-image" />
             </swiper-item>
           </block>
         </swiper>
       </view>
     </i-collapse-item>
-    <i-collapse-item title="斯蒂夫·盖瑞·沃兹尼亚克" name="name2">
-      <view slot="title">
-        <home-list/>
-      </view>
-      <view slot="content">
-        <home-header></home-header>
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
-          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-            <swiper-item class='swiper-item'>
-              <image src="{{item}}" class="slide-image" />
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-    </i-collapse-item>
-    <i-collapse-item name="name3">
-      <view slot="title">
-        <home-list/>
-      </view>
-      <view slot="content">
-        <home-header></home-header>
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
-          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-            <swiper-item class='swiper-item'>
-              <image src="{{item}}" class="slide-image" />
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-    </i-collapse-item>
-  </i-collapse>
+  </block>
+</i-collapse>
+<!-- 空页面  -->
+<view class='empty-page' wx:if='{{isEmpty}}'>
+  暂无相关内容活动 敬请期待
 </view>
+<!--弹出框  -->
+<i-toast id="toast" />
