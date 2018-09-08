@@ -1,38 +1,49 @@
 /* components/list/list.wxss */
+
 /* list组建 */
-.list-components{
+
+.list-components {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 20rpx;
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
+  background: #fff;
 }
 
 /* list-left-area */
-.list-components .list-left-area{
+
+.list-components .list-left-area {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.list-left-area .list-image {
   width: 160rpx;
   height: 160rpx;
   margin-right: 30rpx;
 }
-.list-left-area .list-image{
-  width: 160rpx;
-  height: 160rpx;
-}
 
-/* list-right-area */
-.list-components .list-right-area{
-  font-size: 28rpx;
-}
-.list-right-area .author-name{
+.list-left-area .author-name {
   font-weight: 600;
   font-size: 32rpx;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
 }
-.list-right-area .aciton .mine{
-  padding-right:  10rpx;
-}
-.list-right-area .aciton .total{
-  padding-left:  10rpx;
+
+.list-left-area .aciton .mine {
+  padding-right: 10rpx;
+  font-size: 28rpx;
 }
 
+.list-left-area .aciton .total {
+  padding-left: 10rpx;
+  font-size: 28rpx;
+}
+
+/* list-right-area */
+
+.list-components .list-right-area {
+  /* margin-bottom: 40rpx; */
+}

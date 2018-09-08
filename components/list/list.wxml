@@ -1,14 +1,16 @@
 <view class='list-components'>
-  <view class='list-wrapper'></view>
   <view class='list-left-area'>
     <image class='list-image' src='{{imgUrl}}'></image>
+    <view class='description'>
+      <view class='author-name'>{{username}}</view>
+      <view class='aciton'>
+        <text class='mine'>{{mine}}</text>
+        <text class='line'>/</text>
+        <text class='total'>{{total}}</text>
+      </view>
+    </view>
   </view>
   <view class='list-right-area'>
-    <view class='author-name'>{{username}}</view>
-    <view class='aciton'>
-      <text class='mine'>{{mine}}</text>
-      <text class='line'>/</text>
-      <text class='total'>{{total}}</text>
-    </view>
+    <i-icon type="enter" size='30' color='#ddd'/>
   </view>
 </view>

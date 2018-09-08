@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.4",
-	"appid": "touristappid",
+	"appid": "wxfdb0bd7037208c77",
 	"projectname": "%E9%A2%9C%E5%80%BC%E5%9C%88",
 	"isGameTourist": false,
 	"condition": {
@@ -33,12 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
 					"name": "首页",
-					"pathName": "pages/homepage/homepage"
+					"pathName": "pages/homepage/homepage",
+					"query": ""
 				}
 			]
 		}

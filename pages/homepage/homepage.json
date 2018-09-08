@@ -3,6 +3,7 @@
     "home-header": "../../components/header/header",
     "home-list":"../../components/list/list",
     "i-collapse": "../../dist/collapse/index",
-    "i-collapse-item": "../../dist/collapse-item/index"
+    "i-collapse-item": "../../dist/collapse-item/index",
+    "i-toast": "../../dist/toast/index"
   }
 }
