@@ -1,0 +1,9 @@
+var userUpvote = function (id, userDict){
+  if (typeof id === 'string' && typeof userDict === 'object'){
+    return userDict[id] ? userDict[id].count:0
+  }
+}
+
+module.exports = {
+  userUpvote: userUpvote
+}

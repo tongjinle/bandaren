@@ -38,7 +38,13 @@
   font-size: 28rpx;
   margin-right: 20rpx
 }
-.header-right-area .share-btn{
+.header-right-area button.share-btn{
   font-size: 28rpx;
-  margin-right: 20rpx
+  margin-right: 20rpx;
+  border: 0 none;
+  background: transparent;
+  padding: 0;
+}
+.header-right-area button.share-btn::after{
+  border: 0 none;
 }

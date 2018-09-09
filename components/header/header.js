@@ -7,6 +7,10 @@ Component({
     times:{
       type:Number,
       value:0
+    },
+    imgUrl:{
+      type:String,
+      value:'',
     }
   },
 
@@ -22,7 +26,7 @@ Component({
    */
   methods: {
     signIn:function(){
-      console.log(123);
+      this.triggerEvent('signIn');
     },
     share:function(){
       console.log(223);

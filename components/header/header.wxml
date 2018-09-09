@@ -5,6 +5,6 @@
   </view>
   <view class='header-right-area'>
     <view class='sign-in-btn' bindtap='signIn'>签到</view>
-    <view class='share-btn' bindtap='share'>分享</view>
+    <button class='share-btn' open-type='share' data-img='{{imgUrl}}'>分享</button>
   </view>
 </view>

@@ -1,11 +1,12 @@
+<wxs src="./../../common/wxs/utils.wxs" module="utils" />
 <i-collapse name="{{current}}" accordion wx:if='{{!isEmpty}}'>
-  <block wx:for='{{list}}' wx:key='{{index}}' wx:for-item='card'>
+  <block wx:for='{{gameList}}' wx:key='{{index}}' wx:for-item='card'>
     <i-collapse-item name="{{index}}" i-class='card'>
       <view slot="title">
-        <home-list imgUrl='{{card.headerImg}}' mine='{{card.mine}}' total='{{card.total}}' username='{{card.username}}' />
+        <home-list imgUrl='{{card.headerImg}}' mine='{{utils.userUpvote(card.userId,userDict)}}' total='{{card.total}}' username='{{card.username}}'/>
       </view>
       <view slot="content">
-        <home-header times='{{times}}'></home-header>
+        <home-header times='{{times}}' imgUrl='{{card.headerImg}}' bindsignIn='sign'></home-header>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
           <block wx:for="{{card.imgList}}" wx:key="{{index}}">
             <swiper-item class='swiper-item'>
@@ -15,8 +16,8 @@
                   <view class='total'>{{card.total}}</view>
                 </view>
                 <view class='right'>
-                  <view class='mine'>{{card.mine}}</view>
-                  <view class='action'>按钮</view>
+                   <view class='mine'>{{utils.userUpvote(card.userId,userDict)}}</view> 
+                  <view class='action' bindtap='upvote' data-userId='{{card.userId}}'>按钮</view>
                 </view>
                 <view class='point'>还少多少热度打开下一张图片</view>
               </view>
@@ -34,3 +35,4 @@
 </view>
 <!--弹出框  -->
 <i-toast id="toast" />
+<i-message id="message" /> 

@@ -1,6 +1,8 @@
 const BASE_URL = 'https://api.puman.xyz';
 const PORT = 443;
-const CODE = {};
+const CODE = {
+  
+};
 
 module.exports ={
   BASE_URL,
