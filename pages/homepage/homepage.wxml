@@ -6,20 +6,22 @@
         <home-list imgUrl='{{card.headerImg}}' mine='{{utils.userUpvote(card.userId,userDict)}}' total='{{card.total}}' username='{{card.username}}'/>
       </view>
       <view slot="content">
-        <home-header times='{{times}}' imgUrl='{{card.headerImg}}' bindsignIn='sign'></home-header>
+        <home-header times='{{point}}' imgUrl='{{card.headerImg}}' bindsignIn='sign'></home-header>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper' circular='{{true}}'>
           <block wx:for="{{card.imgList}}" wx:key="{{index}}">
             <swiper-item class='swiper-item'>
               <view class='swpier-desc'>
                 <view class='left'>
-                  <view class='username'>{{card.username}}</view>
-                  <view class='total'>{{card.total}}</view>
+                
+                  <view class='username'>{{card.username}} :</view>
+                    <view class='mine'>{{utils.userUpvote(card.userId,userDict)}}</view>
+                    <view class='line'>/</view> 
+                  <view class='total'> {{card.total}} 票</view>
                 </view>
                 <view class='right'>
-                   <view class='mine'>{{utils.userUpvote(card.userId,userDict)}}</view> 
-                  <view class='action' bindtap='upvote' data-userId='{{card.userId}}'>按钮</view>
+                   <i-icon type="like_fill" size='24' bindtap='upvote' data-userId='{{card.userId}}'/>
                 </view>
-                <view class='point'>还少多少热度打开下一张图片</view>
+                <!-- <view class='point'>还少多少热度打开下一张图片</view> -->
               </view>
               <image src="{{item}}" class="slide-image" />
             </swiper-item>

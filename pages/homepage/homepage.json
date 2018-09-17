@@ -5,6 +5,7 @@
     "i-collapse": "../../dist/collapse/index",
     "i-collapse-item": "../../dist/collapse-item/index",
     "i-toast": "../../dist/toast/index",
-    "i-message": "../../dist/message/index"
+    "i-message": "../../dist/message/index",
+    "i-icon": "../../dist/icon/index"
   }
 }

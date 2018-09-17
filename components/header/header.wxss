@@ -8,7 +8,8 @@
   align-items: center;
   padding: 0 30rpx;
   box-sizing: border-box;
-  background: #fff;
+  background: #ffabc5;
+  color: #fff;
 }
 
 /* header-left-area */
@@ -18,7 +19,7 @@
   align-items: center;
 }
 .header-left-area .icon{
-  background: teal;
+  background: #ff4b87;
   width: 40rpx;
   height: 40rpx;
   border-radius: 50%;
@@ -36,7 +37,8 @@
 }
 .header-right-area .sign-in-btn{
   font-size: 28rpx;
-  margin-right: 20rpx
+  margin-right: 20rpx;
+  
 }
 .header-right-area button.share-btn{
   font-size: 28rpx;
@@ -44,6 +46,7 @@
   border: 0 none;
   background: transparent;
   padding: 0;
+  color: #fff;
 }
 .header-right-area button.share-btn::after{
   border: 0 none;

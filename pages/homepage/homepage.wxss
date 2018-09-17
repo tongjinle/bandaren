@@ -18,9 +18,38 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  padding: 40rpx;
   z-index:200; 
   display: flex;
   justify-content: space-between;
+}
+.swpier-desc .left{
+  background: #ffabc5;
+  height: 40rpx;
+  color: #fff;
+  font-weight: 600;
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.left .username{
+  margin-right: 16rpx;
+}
+.left .line{
+  padding: 6rpx;
+}
+.swpier-desc .right{
+  margin-top: 440rpx;
+  background: #ffabc5;
+  width: 70rpx;
+  height: 70rpx;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swpier-desc .point{
