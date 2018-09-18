@@ -1,16 +1,17 @@
-import { BASE_URL } from '../config/index.js';
+import { BASE_URL } from "../config/index.js";
 const api = {
-  user:{
+  user: {
     getToken: () => `${BASE_URL}/getToken`,
     getUpvote: () => `${BASE_URL}/game/myUpvote`,
     getPoint: () => `${BASE_URL}/game/myPoint`
   },
-  game:{
+  game: {
+    reward: () => `${BASE_URL}/game/reward`,
     current: () => `${BASE_URL}/game/currentIndex`,
-    list:()=>`${BASE_URL}/game/list`,
+    list: () => `${BASE_URL}/game/list`,
     upvote: () => `${BASE_URL}/game/upvote`,
     addPoint: () => `${BASE_URL}/game/addPoint`
   }
-}
+};
 
 module.exports = api;
