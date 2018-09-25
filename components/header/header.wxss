@@ -1,6 +1,6 @@
 /* components/header/header.wxss */
 /* header */
-.header-container{
+.header-container {
   display: flex;
   height: 80rpx;
   width: 100%;
@@ -12,39 +12,44 @@
 }
 
 /* header-left-area */
-.header-container .header-left-area{
+.header-container .header-left-area {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.header-left-area .icon{
-  background: teal;
+.header-left-area .icon {
+  color: red;
   width: 40rpx;
   height: 40rpx;
   border-radius: 50%;
   margin-right: 20rpx;
 }
-.header-left-area .value{
+.header-left-area .value {
   font-size: 28rpx;
 }
 
 /* header-right-area  */
-.header-container .header-right-area{
+.header-container .header-right-area {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.header-right-area .sign-in-btn{
+.header-right-area .sign-in-btn {
   font-size: 28rpx;
-  margin-right: 20rpx
+  margin-right: 20rpx;
 }
-.header-right-area button.share-btn{
+button {
   font-size: 28rpx;
   margin-right: 20rpx;
   border: 0 none;
   background: transparent;
   padding: 0;
 }
-.header-right-area button.share-btn::after{
+
+button::after {
   border: 0 none;
+}
+
+.notice {
+  font-size: 28rpx;
 }

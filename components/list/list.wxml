@@ -6,11 +6,11 @@
       <view class='aciton'>
         <text class='mine'>{{mine}}</text>
         <text class='line'>/</text>
-        <text class='total'>{{total}}</text>
+        <text class='count'>{{count}}</text>
       </view>
     </view>
   </view>
   <view class='list-right-area'>
-    <i-icon type="enter" size='30' color='#ddd'/>
+    <i-icon type="enter" size='30' color='#ddd' />
   </view>
 </view>

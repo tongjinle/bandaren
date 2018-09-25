@@ -1,10 +1,15 @@
 {
   "usingComponents": {
     "home-header": "../../components/header/header",
-    "home-list":"../../components/list/list",
+    "home-list": "../../components/list/list",
     "i-collapse": "../../dist/collapse/index",
     "i-collapse-item": "../../dist/collapse-item/index",
     "i-toast": "../../dist/toast/index",
-    "i-message": "../../dist/message/index"
+    "i-message": "../../dist/message/index",
+    "i-button": "../../dist/button/index",
+    "i-tag": "../../dist/tag/index",
+    "i-badge": "../../dist/badge/index",
+    "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"
   }
 }

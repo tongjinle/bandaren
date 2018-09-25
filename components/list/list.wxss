@@ -37,7 +37,7 @@
   font-size: 28rpx;
 }
 
-.list-left-area .aciton .total {
+.list-left-area .aciton .count {
   padding-left: 10rpx;
   font-size: 28rpx;
 }

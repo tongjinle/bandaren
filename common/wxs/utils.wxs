@@ -2,8 +2,42 @@ var userUpvote = function (id, userDict){
   if (typeof id === 'string' && typeof userDict === 'object'){
     return userDict[id] ? userDict[id].count:0
   }
+};
+
+
+
+
+// 获取当前用户对某个参赛者的贡献
+var getSingleUpvote = function(userId,upvoteList) {
+  for(var i=0;i<upvoteList.length;i++){
+    if(upvoteList[i].userId === userId){
+      return upvoteList[i].count;
+    }
+  }
+  return 0;
+};
+
+// 获取还需要多少热度可以打开下一张照片
+// -1表示已经全部打开
+var getHotNeed = function(hot,hotIntervalList){
+  console.log('getHotNeed',hot,hotIntervalList);
+  if(!hotIntervalList.length || hot>= hotIntervalList[hotIntervalList.length-1]){
+    return -1;
+  }
+  var interval = 0;
+  for(var i=0;i<hotIntervalList.length;i++){
+    if(hot<hotIntervalList[i]){
+      interval = hotIntervalList[i];
+      break;
+    }
+  }
+  return interval-hot;
 }
 
+
+
 module.exports = {
-  userUpvote: userUpvote
-}
+  userUpvote: userUpvote,
+  getSingleUpvote:getSingleUpvote,
+  getHotNeed:getHotNeed
+};

@@ -10,7 +10,8 @@ const api = {
     current: () => `${BASE_URL}/game/currentIndex`,
     list: () => `${BASE_URL}/game/list`,
     upvote: () => `${BASE_URL}/game/upvote`,
-    addPoint: () => `${BASE_URL}/game/addPoint`
+    addPoint: () => `${BASE_URL}/game/addPoint`,
+    myAddPoint: () => `${BASE_URL}/game/myAddPoint`
   }
 };
 

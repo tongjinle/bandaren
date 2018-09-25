@@ -1,10 +1,18 @@
-<view class='header-container'>
-  <view class='header-left-area'>
-    <view class='icon'></view>
-    <view class='value'>{{times}}</view>
+<view class="header-container">
+  <view class="header-left-area">
+    <view class="value">打榜能量: {{times}}</view>
   </view>
-  <view class='header-right-area'>
-    <view class='sign-in-btn' bindtap='signIn'>签到</view>
-    <button class='share-btn' open-type='share' data-img='{{imgUrl}}'>分享</button>
+  <view class="header-right-area">
+    <wx:if></wx:if>
+    <view wx:if="{{signCount>0}}" class="sign-in-btn" bindtap="signIn">签到</view>
+    <view wx:else class="sign-in-btn signed">已签到</view>
+    <button wx:if="{{inviteCount>0}}" class="share-btn" open-type="share" data-img="{{imgUrl}}">
+      分享
+    </button>
   </view>
+</view>
+<view wx:if="{{!noticed}}">
+  <i-notice-bar i-class="notice" icon="systemprompt" bindtap="closeNotice" closable>
+    签到和分享,可以增加你的打榜能量哦~
+  </i-notice-bar>
 </view>
