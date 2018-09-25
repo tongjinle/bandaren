@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "home-footer": "../../components/footer/footer"
+  }
+}

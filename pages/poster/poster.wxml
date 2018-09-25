@@ -1,4 +1,8 @@
-<!-- pages/posterpage/posterpage.wxml -->
-<view>
-  <text>pages/posterpage/posterpage.wxml</text>
-</view>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper" circular="{{true}}">
+  <block wx:for="{{reward.photoList}}" wx:key="{{index}}">
+    <swiper-item class="swiper-item">
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<home-footer></home-footer>

@@ -15,7 +15,7 @@ Component({
   methods: {
     goto({ detail }) {
       let index = detail.key;
-      let urls = ["../homepage/homepage", "../abc/abc"];
+      let urls = ["../homepage/homepage", "../poster/poster"];
       let url = urls[index];
       console.log(detail, url);
       wx.navigateTo({
