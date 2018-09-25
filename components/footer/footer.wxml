@@ -1,0 +1,6 @@
+<view class="bottom">
+  <i-tabs current="{{ current }}" color="#f759ab" bindchange="goto">
+    <i-tab key="main" title="图鉴" key="0"></i-tab>
+    <i-tab key="poster" title="海报" key="1"></i-tab>
+  </i-tabs>
+</view>

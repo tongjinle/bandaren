@@ -45,12 +45,7 @@
       </view>
     </i-collapse-item>
   </block>
-  <view class="bottom">
-    <i-tabs current="{{ current }}" color="#f759ab" bindchange="posterChange">
-      <i-tab key="main" title="图鉴"></i-tab>
-      <i-tab key="poster" title="海报"></i-tab>
-    </i-tabs>
-  </view>
+  <home-footer></home-footer>
 </i-collapse>
 <!-- 空页面 -->
 <view class="empty-page" wx:if="{{isEmpty}}">暂无相关内容活动 敬请期待</view>

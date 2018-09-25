@@ -111,7 +111,7 @@ Page({
       orgin = Object.assign({}, orgin, {
         imageUrl: img,
         success: res => {
-          this.addPoint("invite");
+          this.invite();
           $Toast({
             icon: "success",
             content: "分享成功"
@@ -314,6 +314,29 @@ Page({
       return Promise.resolve();
     });
   },
+  // 分享收益
+  invite() {
+    this.addPoint("invite").then(res => {
+      let { data } = res;
+      console.log("sign res:", data);
+      if (data.code) {
+        $Toast({
+          icon: "error",
+          content: data.message
+        });
+      } else {
+        // 通过后端处理
+        // this.getMypoint();
+        // 前端直接处理
+        // 1. point+1
+        // 2. signCount-1
+        this.setData({
+          times: this.data.times + data.point,
+          inviteCount: this.data.inviteCount - 1
+        });
+      }
+    });
+  },
   // 签到
   sign() {
     this.addPoint("sign").then(res => {
@@ -331,7 +354,7 @@ Page({
         // 1. point+1
         // 2. signCount-1
         this.setData({
-          times: this.data.times + 1,
+          times: this.data.times + data.point,
           signCount: this.data.signCount - 1
         });
       }
