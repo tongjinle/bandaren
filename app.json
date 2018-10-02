@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/homepage/homepage", "pages/poster/poster", "pages/abc/abc"],
+  "pages": ["pages/homepage/homepage", "pages/poster/poster"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

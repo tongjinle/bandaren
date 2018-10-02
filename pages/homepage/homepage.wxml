@@ -1,5 +1,5 @@
 <wxs src="./../../common/wxs/utils.wxs" module="utils" />
-<i-collapse name="{{current}}" accordion wx:if="{{!isEmpty}}">
+<i-collapse class="content" name="{{current}}" accordion wx:if="{{!isEmpty}}">
   <block wx:for="{{gameList}}" wx:key="{{index}}" wx:for-item="card">
     <i-collapse-item name="{{index}}" i-class="card">
       <view slot="title">
@@ -7,7 +7,7 @@
       </view>
       <view slot="content">
         <home-header times="{{times}}" imgUrl="{{card.headerImg}}" noticed="{{true}}" signCount="{{signCount}}" inviteCount="{{inviteCount}}" bindsignIn="sign" bindInvite="invite"></home-header>
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper" circular="{{true}}">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper" circular="{{false}}">
           <block wx:for="{{card.photoList}}" wx:key="{{index}}">
             <swiper-item class="swiper-item">
               <view class="swpier-desc">
@@ -35,18 +35,21 @@
                   </i-badge>
                 </view>
                 <view class="point">
-                  {{card.hotNeed == -1 ? '' : '还少'+card.hotNeed+'热度打开下一张图片'}}
+                  <i-tag color="blue" type="border">
+                    {{card.hotNeed == -1 ? '' : '还少'+card.hotNeed+'热度打开下一张图片'}}
+                  </i-tag>
                 </view>
               </view>
-              <image src="{{item}}" class="slide-image" />
+              <image src="{{item}}" class="slide-image" mode="aspectFit" />
             </swiper-item>
           </block>
         </swiper>
       </view>
     </i-collapse-item>
   </block>
-  <home-footer></home-footer>
 </i-collapse>
+<view class="holder"></view>
+<home-footer></home-footer>
 <!-- 空页面 -->
 <view class="empty-page" wx:if="{{isEmpty}}">暂无相关内容活动 敬请期待</view>
 <!-- 弹出框 -->

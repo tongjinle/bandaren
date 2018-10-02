@@ -1,6 +1,6 @@
 <view class='list-components'>
   <view class='list-left-area'>
-    <image class='list-image' src='{{imgUrl}}'></image>
+    <image class='list-image' src='{{imgUrl}}' mode="aspectFit"></image>
     <view class='description'>
       <view class='author-name'>{{username}}</view>
       <view class='aciton'>

@@ -1,6 +1,6 @@
 // pages/homepage/homepage.js
 let app = getApp();
-let { axios, api } = app;
+let { axios, api, wait } = app;
 import { $Toast, $Message } from "../../dist/base/index";
 Page({
   /**
@@ -46,7 +46,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    setTimeout(() => {
+    let check = () => {
+      return !!wx.getStorageSync("token");
+    };
+    let next = () => {
       this.getMypoint();
       this.getCurrentNo()
         .then(index => {
@@ -61,7 +64,8 @@ Page({
         .then(res => {
           this.setGameList(res);
         });
-    }, 20);
+    };
+    wait(check, next);
   },
 
   /**
@@ -163,12 +167,19 @@ Page({
    * 设置当前列表
    */
   setGameList(list = []) {
-    let gameList = list.map(el => {
-      let rst = el;
-      rst.logo = el.photoList[0];
-      rst.hotNeed = this._getHotNeed(rst.count, this.data.rule.hotIntervalList);
-      return rst;
-    });
+    let gameList = list
+      .map(el => {
+        let rst = el;
+        rst.logo = el.photoList[0];
+        rst.hotNeed = this._getHotNeed(
+          rst.count,
+          this.data.rule.hotIntervalList
+        );
+        return rst;
+      })
+      .sort((a, b) => {
+        return b.count - a.count;
+      });
     this.setData({ gameList });
   },
   // 打榜点数的总和

@@ -33,12 +33,18 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
+      "current": 0,
       "list": [
         {
           "id": -1,
-          "name": "首页",
+          "name": "图鉴",
           "pathName": "pages/homepage/homepage",
+          "query": ""
+        },
+        {
+          "id": 0,
+          "name": "海报",
+          "pathName": "pages/poster/poster",
           "query": ""
         }
       ]

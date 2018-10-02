@@ -1,1 +1,7 @@
-/* pages/posterpage/posterpage.wxss */
+.poster {
+  width: 100%;
+}
+
+.poster image {
+  width: 100%;
+}
