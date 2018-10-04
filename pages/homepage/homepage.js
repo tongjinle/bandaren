@@ -47,7 +47,9 @@ Page({
    */
   onLoad(options) {
     let check = () => {
-      return !!wx.getStorageSync("token");
+      let token = wx.getStorageSync("token");
+      console.log({ token });
+      return !!token;
     };
     let next = () => {
       this.getMypoint();
