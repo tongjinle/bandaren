@@ -49,7 +49,7 @@
   </block>
 </i-collapse>
 <view class="holder"></view>
-<home-footer></home-footer>
+<!-- <home-footer></home-footer> -->
 <!-- 空页面 -->
 <view class="empty-page" wx:if="{{isEmpty}}">暂无相关内容活动 敬请期待</view>
 <!-- 弹出框 -->

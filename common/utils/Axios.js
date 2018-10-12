@@ -8,7 +8,11 @@ export default class Axios {
       Axios.instance = new Axios(arg);
 
       wx.removeStorageSync("token");
-      Axios.instance.login();
+      let token = wx.getStorageSync("token");
+      let expires = wx.getStorageSync("expires");
+      if (!token || (expires && expires < Date.now())) {
+        Axios.instance.login();
+      }
     }
     return Axios.instance;
   }
@@ -60,8 +64,9 @@ export default class Axios {
         let url = api.user.getToken();
         let data = { code };
         this.get({ url, data, noStore: true }).then(res => {
-          let { token } = res.data;
+          let { token, expires } = res.data;
           wx.setStorageSync("token", token);
+          wx.setStorageSync("expires", expires);
         });
       }
     });

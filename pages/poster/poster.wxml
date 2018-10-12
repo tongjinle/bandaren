@@ -1,4 +1,3 @@
 <view class="poster">
   <image mode="widthFix" src="{{reward.photoList[0]}}" class="slide-image" />
 </view>
-<home-footer></home-footer>

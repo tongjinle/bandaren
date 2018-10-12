@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isEmpty: false,
     indicatorDots: true,
     autoplay: false,
     interval: 3000,
@@ -53,19 +54,24 @@ Page({
     };
     let next = () => {
       this.getMypoint();
-      this.getCurrentNo()
-        .then(index => {
-          this.currentIndex = index;
-          return this.getReward(this.currentIndex);
-        })
-        .then(() => {
-          this.getMyAddPoint();
-          this.getUpvote(this.currentIndex);
-          return this.getGameList(this.currentIndex);
-        })
-        .then(res => {
-          this.setGameList(res);
-        });
+      this.getCurrentNo().then(index => {
+        this.currentIndex = index;
+        if (index !== -1) {
+          this.getReward(this.currentIndex)
+            .then(() => {
+              this.getMyAddPoint();
+              this.getUpvote(this.currentIndex);
+              return this.getGameList(this.currentIndex);
+            })
+            .then(res => {
+              this.setGameList(res);
+            });
+        } else {
+          this.setData({
+            isEmpty: true
+          });
+        }
+      });
     };
     wait(check, next);
   },
@@ -136,12 +142,8 @@ Page({
       let {
         data: { index }
       } = res;
-      if (index > -1) {
-        return Promise.resolve(index);
-      }
-      this.setData({
-        isEmpty: true
-      });
+      return Promise.resolve(index);
+
       // return $Toast({
       //   content: '暂无活动',
       //   icon: 'warning',
