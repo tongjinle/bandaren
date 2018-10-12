@@ -31,7 +31,7 @@
                 </view>
                 <view class="upvote-btn">
                   <i-badge count="{{times}}" overflow-count="100" bindtap="lazyUpvote" data-user-id="{{card.userId}}">
-                    <view class="text">打榜!</view>
+                    <view class="text">点赞!</view>
                   </i-badge>
                 </view>
                 <view class="point">
