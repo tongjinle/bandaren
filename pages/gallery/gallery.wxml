@@ -1,0 +1,5 @@
+<view class="gallery">
+  <view wx:for="{{galleryList}}" wx:key="{{index}}" wx:for-item="item">
+    <gallery-item type="{{item.type}}" title="{{item.title}}" count="{{item.count}}" resource="{{item.resource}}"></gallery-item>
+  </view>
+</view>

@@ -7,7 +7,6 @@ export default class Axios {
     if (!Axios.instance) {
       Axios.instance = new Axios(arg);
 
-      wx.removeStorageSync("token");
       let token = wx.getStorageSync("token");
       let expires = wx.getStorageSync("expires");
       if (!token || (expires && expires < Date.now())) {
@@ -48,6 +47,8 @@ export default class Axios {
         method,
         header,
         success: res => {
+          // TODO
+          // 判断token失效的时候
           resolve(res);
         },
         fail: err => {
@@ -61,6 +62,7 @@ export default class Axios {
     wx.login({
       success: res => {
         let { code } = res;
+        console.log({ code });
         let url = api.user.getToken();
         let data = { code };
         this.get({ url, data, noStore: true }).then(res => {

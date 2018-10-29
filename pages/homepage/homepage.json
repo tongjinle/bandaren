@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "home-welcome": "../../components/welcome/welcome",
     "home-header": "../../components/header/header",
     "home-list": "../../components/list/list",
     "home-footer": "../../components/footer/footer",

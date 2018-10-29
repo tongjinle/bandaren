@@ -47,6 +47,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // 查看是不是要"授权"页面
+    this.setData({ isShowWelcome: !wx.getStorageSync("hasUserInfo") });
+
     let check = () => {
       let token = wx.getStorageSync("token");
       console.log({ token });
@@ -84,7 +87,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    console.log("hahah");
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -106,33 +111,6 @@ Page({
    */
   onReachBottom() {},
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage(res) {
-    let orgin = {
-      title: "颜值图鉴",
-      path: "/pages/homepage/homepage"
-    };
-    if (res.from === "button") {
-      let {
-        target: {
-          dataset: { img }
-        }
-      } = res;
-      orgin = Object.assign({}, orgin, {
-        imageUrl: img,
-        success: res => {
-          this.invite();
-          $Toast({
-            icon: "success",
-            content: "分享成功"
-          });
-        }
-      });
-    }
-    return orgin;
-  },
   /**
    * 获取当前游戏轮次
    */
@@ -329,62 +307,7 @@ Page({
       return Promise.resolve();
     });
   },
-  // 分享收益
-  invite() {
-    this.addPoint("invite").then(res => {
-      let { data } = res;
-      console.log("sign res:", data);
-      if (data.code) {
-        $Toast({
-          icon: "error",
-          content: data.message
-        });
-      } else {
-        // 通过后端处理
-        // this.getMypoint();
-        // 前端直接处理
-        // 1. point+1
-        // 2. signCount-1
-        this.setData({
-          times: this.data.times + data.point,
-          inviteCount: this.data.inviteCount - 1
-        });
-      }
-    });
-  },
-  // 签到
-  sign() {
-    this.addPoint("sign").then(res => {
-      let { data } = res;
-      console.log("sign res:", data);
-      if (data.code) {
-        $Toast({
-          icon: "error",
-          content: data.message
-        });
-      } else {
-        // 通过后端处理
-        // this.getMypoint();
-        // 前端直接处理
-        // 1. point+1
-        // 2. signCount-1
-        this.setData({
-          times: this.data.times + data.point,
-          signCount: this.data.signCount - 1
-        });
-      }
-    });
-  },
-  /**
-   * 增加点击数
-   */
-  addPoint(type) {
-    let url = api.game.addPoint();
-    let data = {
-      type
-    };
-    return axios.post({ url, data });
-  },
+
   // 获取用户当前addPoint的状态(addPoint是有限制的,sign每天1次,invite每天10次,具体数字由后端决定)
   getMyAddPoint() {
     let url = api.game.myAddPoint();

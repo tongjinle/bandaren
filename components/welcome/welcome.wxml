@@ -1,0 +1,8 @@
+<view class="welcome" wx:if="{{isShow}}">
+  <image mode="aspectFill" src="{{imgUrl}}" class="slide-image" />
+  <view class="button">
+    <button type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+      点击授权
+    </button>
+  </view>
+</view>

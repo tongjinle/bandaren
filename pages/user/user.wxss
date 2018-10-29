@@ -1,0 +1,60 @@
+.user {
+  padding: 0 10rpx;
+}
+.info {
+  padding-top: 20rpx;
+  text-align: center;
+}
+
+.info .logo {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+}
+
+.info .text {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.info .text .username {
+  font-size: 32rpx;
+}
+
+.point {
+  position: absolute;
+  top: 50rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+}
+.point .icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.add-point {
+  margin-top: 300rpx;
+  text-align: left;
+}
+
+.add-point button {
+  width: 80%;
+}
+
+.add-point .sign {
+}
+
+.add-point .invite {
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.add-point .invite text {
+  flex: 1;
+  font-size: 28rpx;
+}

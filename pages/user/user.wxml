@@ -1,0 +1,23 @@
+<home-welcome></home-welcome>
+<view class="user">
+  <view class="info">
+    <image class="logo" src="{{logoUrl}}"></image>
+    <view class="text">
+      <text class="address">{{address}}</text>
+      <text class="username">{{username}}</text>
+    </view>
+  </view>
+  <view class="point">
+    <image class="icon" src="../../assert/images/point.png"></image>
+    <text>代币:{{pointCount}}枚</text>
+  </view>
+  <view class="add-point">
+    <view class="sign">
+      <button bindtap="sign" type="{{!isSign?'primary':'default'}}">{{isSign?'已签到':'签到'}}</button>
+    </view>
+    <view class="invite">
+      <button open-type="share" type="{{canInvite?'primary':'default'}}">{{inviteTip}}</button>
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />

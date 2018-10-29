@@ -1,10 +1,15 @@
 {
-  "pages": ["pages/homepage/homepage", "pages/poster/poster"],
+  "pages": [
+    "pages/user/user",
+    "pages/homepage/homepage",
+    "pages/poster/poster"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
@@ -13,6 +18,12 @@
         "text": "首页",
         "selectedIconPath": "assert/images/girl.png",
         "iconPath": "assert/images/girl.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人信息",
+        "selectedIconPath": "assert/images/user.png",
+        "iconPath": "assert/images/user.png"
       },
       {
         "pagePath": "pages/poster/poster",

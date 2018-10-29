@@ -1,4 +1,5 @@
 <wxs src="./../../common/wxs/utils.wxs" module="utils" />
+<home-welcome></home-welcome>
 <i-collapse class="content" name="{{current}}" accordion wx:if="{{!isEmpty}}">
   <block wx:for="{{gameList}}" wx:key="{{index}}" wx:for-item="card">
     <i-collapse-item name="{{index}}" i-class="card">
@@ -6,7 +7,6 @@
         <home-list imgUrl="{{card.logo}}" mine="{{utils.getSingleUpvote(card.userId,upvoteList)}}" count="{{card.count}}" username="{{card.username}}" />
       </view>
       <view slot="content">
-        <home-header times="{{times}}" imgUrl="{{card.headerImg}}" noticed="{{true}}" signCount="{{signCount}}" inviteCount="{{inviteCount}}" bindsignIn="sign" bindInvite="invite"></home-header>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper" circular="{{false}}">
           <block wx:for="{{card.photoList}}" wx:key="{{index}}">
             <swiper-item class="swiper-item">
@@ -31,7 +31,7 @@
                 </view>
                 <view class="upvote-btn">
                   <i-badge count="{{times}}" overflow-count="100" bindtap="lazyUpvote" data-user-id="{{card.userId}}">
-                    <view class="text">点赞!</view>
+                    <view class="text">赞</view>
                   </i-badge>
                 </view>
                 <view class="point">
@@ -49,8 +49,6 @@
   </block>
 </i-collapse>
 <view class="holder"></view>
-<!-- <home-footer></home-footer> -->
-<!-- 空页面 -->
 <view class="empty-page" wx:if="{{isEmpty}}">暂无相关内容活动 敬请期待</view>
 <!-- 弹出框 -->
 <i-toast id="toast" />

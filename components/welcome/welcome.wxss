@@ -1,0 +1,17 @@
+.welcome {
+}
+
+.welcome image {
+  height: 100vh;
+}
+
+.welcome .button {
+  position: fixed;
+  bottom: 100rpx;
+  width: 100%;
+}
+
+.welcome .button button {
+  margin: 0 auto;
+  width: 250rpx;
+}

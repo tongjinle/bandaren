@@ -12,6 +12,9 @@ const api = {
     upvote: () => `${BASE_URL}/game/upvote`,
     addPoint: () => `${BASE_URL}/game/addPoint`,
     myAddPoint: () => `${BASE_URL}/game/myAddPoint`
+  },
+  common: {
+    setUserInfo: () => `${BASE_URL}/common/setUserInfo`
   }
 };
 
