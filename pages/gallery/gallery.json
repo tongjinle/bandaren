@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "gallery-item": "../../components/galleryItem/galleryItem",
+    "gallery-item-detail": "../../components/galleryItemDetail/galleryItemDetail"
+  }
 }

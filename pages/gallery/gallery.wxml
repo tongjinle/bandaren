@@ -1,5 +1,8 @@
 <view class="gallery">
-  <view wx:for="{{galleryList}}" wx:key="{{index}}" wx:for-item="item">
-    <gallery-item type="{{item.type}}" title="{{item.title}}" count="{{item.count}}" resource="{{item.resource}}"></gallery-item>
+  <view wx:if="{{mode==='list'}}" wx:for="{{galleryList}}" wx:key="{{index}}" wx:for-item="item">
+    <gallery-item type="{{item.type}}" id="{{item.id}}" logoUrl="{{item.logoUrl}}" title="{{item.title}}" count="{{item.count}}" resource="{{item.resource}}" bind:showDetail="showDetail"></gallery-item>
+  </view>
+  <view class="detail" wx:if="{{mode==='detail'}}">
+    <gallery-item-detail bind:close="onCloseDetail" type="{{detail.type}}" resource="{{detail.resource}}" title="{{detail.title}}" count="{{item.count}}"></gallery-item-detail>
   </view>
 </view>

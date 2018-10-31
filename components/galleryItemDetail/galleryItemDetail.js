@@ -7,11 +7,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // id
-    id: {
-      type: "String",
-      value: ""
-    },
     // 标题
     title: {
       type: "String",
@@ -28,11 +23,6 @@ Component({
       type: "String",
       value: ""
     },
-    // logo
-    logoUrl: {
-      type: "String",
-      value: ""
-    },
     // 资源
     // 一般来说,video就1个
     resource: {
@@ -44,22 +34,17 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    isShowDetail: false
+  },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    more() {
-      console.log(
-        ["more", this.id, this.data.id, this.properties.id].join("***")
-      );
-      // let isShowDetail = !this.data.isShowDetail;
-      // this.setData({
-      //   isShowDetail
-      // });
-
-      this.triggerEvent("showDetail", { id: this.id });
+    close() {
+      console.log("close");
+      this.triggerEvent("close");
     }
   }
 });

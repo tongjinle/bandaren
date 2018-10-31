@@ -1,17 +1,12 @@
-<view class="gallert-item">
-  <view class="info">
+<view class="gallery-item">
+  <view class="info" wx:if="{{!isShowDetail}}">
     <image class="logo" src="{{logoUrl}}"></image>
-    <view class="right">
+    <view class="center">
       <text class="title">{{title}}</text>
-      <text class="title">浏览量: {{count}}</text>
+      <text class="count">浏览量: {{count}}</text>
     </view>
-  </view>
-  <view class="detail">
-    <swiper wx:if="{{type==='pic'}}" wx:for="{{resource}}" wx:for-key="{{index}}" wx:for-item="pic">
-      <swiper-item>
-        <image src="{{pic}}"></image>
-      </swiper-item>
-    </swiper>
-    <video wx:if="{{type==='video'}}" src="{{resource[0]}}"></video>
+    <view class="right">
+      <image class="more" src="../../assert/images/rightArrow.png" bindtap="more"></image>
+    </view>
   </view>
 </view>

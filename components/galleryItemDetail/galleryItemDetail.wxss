@@ -1,0 +1,35 @@
+.gallery-item-detail {
+}
+
+.detail {
+  position: relative;
+}
+.box {
+  height: 100vh;
+}
+
+.box .pic {
+}
+
+.video {
+  width: 100vw;
+}
+
+.bar {
+  top: 0;
+  display: flex;
+  width: 100vw;
+  height: 80rpx;
+  align-items: center;
+}
+.bar .title {
+  padding-left: 25rpx;
+  font-size: 40rpx;
+  flex: 1;
+}
+
+.bar .close {
+  padding-right: 25rpx;
+  width: 50rpx;
+  height: 50rpx;
+}

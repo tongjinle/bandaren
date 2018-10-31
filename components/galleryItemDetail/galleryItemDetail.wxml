@@ -1,0 +1,16 @@
+<view class="gallery-item-detail">
+  <view class="bar">
+    <text class="title">{{title}}</text>
+    <image class="close" bind:tap="close" src="../../assert/images/close.png"></image>
+  </view>
+  <view class="detail">
+    <swiper wx:if="{{type==='pic'}}" class="box">
+      <block wx:for="{{resource}}" wx:key="{{index}}" wx:for-item="pic">
+        <swiper-item>
+          <image mode="widthFix" class="pic" src="{{pic}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <video class="video" wx:if="{{type==='video'}}" src="{{resource[0]}}"></video>
+  </view>
+</view>
