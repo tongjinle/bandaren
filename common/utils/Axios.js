@@ -1,4 +1,6 @@
 import api from "../api/index";
+import * as keys from "../../common/keys/index";
+
 const app = getApp();
 const ErrToken = 800;
 export default class Axios {
@@ -8,24 +10,26 @@ export default class Axios {
     if (!Axios.instance) {
       Axios.instance = new Axios(arg);
 
-      let token = wx.getStorageSync("token");
-      let expires = wx.getStorageSync("expires");
-      console.log(expires, Date.now());
-      if (!token || (expires && expires < Date.now())) {
-        Axios.instance.login();
-      }
+      // let token = wx.getStorageSync("token");
+      // let expires = wx.getStorageSync("expires");
+      // console.log(expires, Date.now());
+      // if (!token || (expires && expires < Date.now())) {
+      //   Axios.instance.login();
+      // }
     }
     return Axios.instance;
   }
 
   post(options) {
-    let { header, data, url } = this.__handleRequest(options);
-    return this.__handleHttpRequest(url, data, header, "POST");
+    return this.__handleRequest(options).then(({ header, data, url }) => {
+      return this.__handleHttpRequest(url, data, header, "POST");
+    });
   }
 
   get(options) {
-    let { header, data, url } = this.__handleRequest(options);
-    return this.__handleHttpRequest(url, data, header, "GET");
+    return this.__handleRequest(options).then(({ header, data, url }) => {
+      return this.__handleHttpRequest(url, data, header, "GET");
+    });
   }
 
   __handleRequest(options) {
@@ -33,7 +37,39 @@ export default class Axios {
     if (!url) {
       throw Error("url is necessary");
     }
-    let token = wx.getStorageSync("token");
+    // let token = wx.getStorageSync("token");
+    let token;
+    return new Promise((resolve, reject) => {
+      wx.getStorage({
+        key: keys.token(),
+        complete: res => {
+          token = res.data;
+          resolve(res.data);
+          console.log("getStorage.token", token);
+        }
+      });
+    })
+      .then(token => {
+        console.log("getStorage.token in then", token);
+        if (!token) {
+          return this.login();
+        }
+        return token;
+      })
+      .then(token => {
+        // 异步设置token
+        wx.setStorage({
+          key: keys.token(),
+          data: token
+        });
+
+        return {
+          header: { token },
+          url,
+          data
+        };
+      });
+
     let header = { token };
     this.store = { url, data };
     data = typeof data === "string" ? JSON.parse(data) : data;
@@ -55,17 +91,7 @@ export default class Axios {
           let code = res.data.code;
           if (code) {
             if (ErrToken === code) {
-              console.log("尝试获取一次新的token");
-              console.log("step1", args);
-              return this.login().then(() => {
-                console.log("step2", args);
-                let { header, data, url } = this.__handleRequest({
-                  url: args.url,
-                  data: args.data
-                });
-                console.log("url...", url);
-                return this.__handleHttpRequest(url, data, header, method);
-              });
+              console.log(res.data);
             }
           } else {
             resolve(res);
@@ -86,11 +112,15 @@ export default class Axios {
           console.log({ code });
           let url = api.user.getToken();
           let data = { code };
-          this.get({ url, data, noStore: true }).then(res => {
-            let { token, expires } = res.data;
-            wx.setStorageSync("token", token);
-            wx.setStorageSync("expires", expires);
-            resolve();
+          wx.request({
+            url,
+            data,
+            success: res => {
+              let { token, expires } = res.data;
+              wx.setStorage({ key: keys.token(), data: token });
+              wx.setStorage({ key: keys.expires(), data: expires });
+              resolve(token);
+            }
           });
         }
       });

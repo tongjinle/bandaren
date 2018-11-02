@@ -1,4 +1,3 @@
-<home-welcome></home-welcome>
 <view class="user">
   <view class="info">
     <image class="logo" src="{{logoUrl}}"></image>

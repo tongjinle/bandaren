@@ -1,5 +1,4 @@
 <wxs src="./../../common/wxs/utils.wxs" module="utils" />
-<home-welcome></home-welcome>
 <i-collapse class="content" name="{{current}}" accordion wx:if="{{!isEmpty}}">
   <block wx:for="{{gameList}}" wx:key="{{index}}" wx:for-item="card">
     <i-collapse-item name="{{index}}" i-class="card">

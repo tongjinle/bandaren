@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "home-welcome": "../../components/welcome/welcome",
     "i-toast": "../../dist/toast/index"
   }
 }
