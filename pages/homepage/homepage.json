@@ -1,4 +1,7 @@
 {
+  "window": {
+    "navigationBarTitleText": "活动"
+  },
   "usingComponents": {
     "home-welcome": "../../components/welcome/welcome",
     "home-header": "../../components/header/header",

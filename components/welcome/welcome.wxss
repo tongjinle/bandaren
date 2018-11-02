@@ -1,8 +1,13 @@
 .welcome {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .welcome image {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .welcome .button {

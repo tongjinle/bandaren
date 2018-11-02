@@ -35,7 +35,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isShowDetail: false
+    isShowDetail: false,
+    videoContext: undefined
+  },
+
+  ready() {
+    let videoContext = this.data.videoContext || wx.createVideoContext("video");
+    this.setData({ videoContext });
   },
 
   /**
@@ -45,6 +51,14 @@ Component({
     close() {
       console.log("close");
       this.triggerEvent("close");
+    },
+    play() {
+      console.log("play", this.data.videoContext);
+      let videoContext = this.data.videoContext;
+      setTimeout(() => {
+        videoContext.pause();
+        // videoContext.requestFullScreen({ direction: 90 });
+      }, 2000);
     }
   }
 });

@@ -1,5 +1,6 @@
 import api from "../api/index";
 const app = getApp();
+const ErrToken = 800;
 export default class Axios {
   constructor(arg) {}
 
@@ -9,6 +10,7 @@ export default class Axios {
 
       let token = wx.getStorageSync("token");
       let expires = wx.getStorageSync("expires");
+      console.log(expires, Date.now());
       if (!token || (expires && expires < Date.now())) {
         Axios.instance.login();
       }
@@ -40,6 +42,7 @@ export default class Axios {
   }
 
   __handleHttpRequest(url, data, header, method = "GET") {
+    let args = [url, data, header];
     return new Promise((resolve, reject) => {
       wx.request({
         url,
@@ -49,7 +52,24 @@ export default class Axios {
         success: res => {
           // TODO
           // 判断token失效的时候
-          resolve(res);
+          let code = res.data.code;
+          if (code) {
+            if (ErrToken === code) {
+              console.log("尝试获取一次新的token");
+              console.log("step1", args);
+              return this.login().then(() => {
+                console.log("step2", args);
+                let { header, data, url } = this.__handleRequest({
+                  url: args.url,
+                  data: args.data
+                });
+                console.log("url...", url);
+                return this.__handleHttpRequest(url, data, header, method);
+              });
+            }
+          } else {
+            resolve(res);
+          }
         },
         fail: err => {
           reject(err);
@@ -59,18 +79,21 @@ export default class Axios {
   }
 
   login() {
-    wx.login({
-      success: res => {
-        let { code } = res;
-        console.log({ code });
-        let url = api.user.getToken();
-        let data = { code };
-        this.get({ url, data, noStore: true }).then(res => {
-          let { token, expires } = res.data;
-          wx.setStorageSync("token", token);
-          wx.setStorageSync("expires", expires);
-        });
-      }
+    return new Promise((resolve, reject) => {
+      wx.login({
+        success: res => {
+          let { code } = res;
+          console.log({ code });
+          let url = api.user.getToken();
+          let data = { code };
+          this.get({ url, data, noStore: true }).then(res => {
+            let { token, expires } = res.data;
+            wx.setStorageSync("token", token);
+            wx.setStorageSync("expires", expires);
+            resolve();
+          });
+        }
+      });
     });
   }
 }

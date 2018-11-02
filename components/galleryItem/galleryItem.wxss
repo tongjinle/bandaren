@@ -10,6 +10,7 @@
 .info .logo {
   width: 120rpx;
   height: 120rpx;
+  flex-shrink: 0;
 }
 
 .info .center {
@@ -18,11 +19,15 @@
   flex-direction: column;
   padding-left: 50rpx;
   padding-top: 15rpx;
+  width: 50%;
 }
 
 .info .center .title {
   font-size: 40rpx;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .info .center .count {
   font-size: 26rpx;

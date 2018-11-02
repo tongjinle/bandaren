@@ -1,12 +1,12 @@
 <view class="gallery-item">
-  <view class="info" wx:if="{{!isShowDetail}}">
+  <view class="info" wx:if="{{!isShowDetail}}" bind:tap="more">
     <image class="logo" src="{{logoUrl}}"></image>
     <view class="center">
       <text class="title">{{title}}</text>
       <text class="count">浏览量: {{count}}</text>
     </view>
     <view class="right">
-      <image class="more" src="../../assert/images/rightArrow.png" bindtap="more"></image>
+      <image class="more" src="../../assert/images/rightArrow.png"></image>
     </view>
   </view>
 </view>

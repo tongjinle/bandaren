@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "颜值图鉴",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

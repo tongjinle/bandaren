@@ -10,7 +10,8 @@ Page({
     mode: "list",
     detail: undefined
   },
-  onLoad() {
+  onLoad(options) {
+    console.log(options);
     let index = wx.getStorageSync("galleryPageIndex") || 0;
     this.setPageIndex(index);
     this.fetchGallery();
@@ -47,7 +48,7 @@ Page({
         count: 120,
         logoUrl:
           "https://api.puman.xyz/static/images/1/超凶/74AB4DAF7743D485A7A93CC71BB03AF2.jpg",
-        resource: ["http://localhost:1216/1.mp4"]
+        resource: ["http://172.20.10.3:1216/1.mp4"]
       }
     ];
     let galleryList = [...this.data.galleryList, ...data];
