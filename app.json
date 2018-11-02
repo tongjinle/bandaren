@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/homepage/homepage",
     "pages/welcome/welcome",
+    "pages/homepage/homepage",
     "pages/user/user",
     "pages/gallery/gallery"
   ],

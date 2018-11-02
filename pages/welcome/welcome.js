@@ -13,11 +13,16 @@ Page({
     console.log("welcome ready");
     wx.getStorage({
       key: keys.hasUserInfo(),
-      success: ({ data }) => {
+      complete: res => {
+        let data = res.data;
         console.log(data);
         if (data !== "1") {
           this.setData({ isShow: true });
+          return;
         }
+
+        // 直接跳转
+        this.switchTab();
       }
     });
   },
@@ -47,12 +52,22 @@ Page({
       })
       .then(res => {
         console.log(res.data);
-        wx.switchTab("/pages/homepage/homepage");
         wx.setStorage({ key: keys.hasUserInfo(), data: "1" });
-        wx.setStorage({ key: keys.userInfo(), data: info });
+        wx.setStorage({
+          key: keys.userInfo(),
+          data: info,
+          success: () => {
+            this.switchTab();
+          }
+        });
       })
       .catch(() => {
         this.setData({ canTap: true });
       });
+  },
+
+  switchTab() {
+    console.log("switchTab");
+    wx.switchTab({ url: "/pages/homepage/homepage" });
   }
 });
