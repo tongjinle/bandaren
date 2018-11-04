@@ -45,12 +45,10 @@ export default class Axios {
         complete: res => {
           token = res.data;
           resolve(res.data);
-          console.log("getStorage.token", token);
         }
       });
     })
       .then(token => {
-        console.log("getStorage.token in then", token);
         if (!token) {
           return this.login();
         }
@@ -92,6 +90,7 @@ export default class Axios {
           if (code) {
             if (ErrToken === code) {
               console.log(res.data);
+              wx.removeStorageSync(keys.token());
             }
           } else {
             resolve(res);
