@@ -33,6 +33,11 @@ Component({
       type: "String",
       value: ""
     },
+    // date
+    date: {
+      type: "Number",
+      value: ""
+    },
     // 资源
     // 一般来说,video就1个
     resource: {

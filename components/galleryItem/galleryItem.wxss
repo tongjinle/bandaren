@@ -29,13 +29,22 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.info .center .count {
+.info .center .bottom {
   font-size: 26rpx;
   /* text-align: right; */
   flex: 1;
   display: flex;
   align-items: flex-end;
   color: #666;
+  justify-content: space-between;
+}
+
+.info .center .bottom .count {
+  flex: 1;
+}
+
+.info .center .bottom .date {
+  padding-right: 40rpx;
 }
 
 .info .right {

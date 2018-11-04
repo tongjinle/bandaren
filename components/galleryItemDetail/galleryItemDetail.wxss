@@ -9,6 +9,7 @@
 }
 
 .box .pic {
+  width: 100vw;
 }
 
 .video {

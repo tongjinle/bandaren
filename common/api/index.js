@@ -11,7 +11,9 @@ const api = {
     list: () => `${BASE_URL}/game/list`,
     upvote: () => `${BASE_URL}/game/upvote`,
     addPoint: () => `${BASE_URL}/game/addPoint`,
-    myAddPoint: () => `${BASE_URL}/game/myAddPoint`
+    myAddPoint: () => `${BASE_URL}/game/myAddPoint`,
+    gallery: () => `${BASE_URL}/game/gallery`,
+    galleryCount: () => `${BASE_URL}/game/galleryCount`
   },
   common: {
     setUserInfo: () => `${BASE_URL}/common/setUserInfo`

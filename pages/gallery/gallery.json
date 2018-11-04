@@ -2,5 +2,10 @@
   "usingComponents": {
     "gallery-item": "../../components/galleryItem/galleryItem",
     "gallery-item-detail": "../../components/galleryItemDetail/galleryItemDetail"
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "black"
   }
 }

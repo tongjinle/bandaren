@@ -39,5 +39,5 @@ var getHotNeed = function(hot,hotIntervalList){
 module.exports = {
   userUpvote: userUpvote,
   getSingleUpvote:getSingleUpvote,
-  getHotNeed:getHotNeed
+  getHotNeed:getHotNeed,
 };

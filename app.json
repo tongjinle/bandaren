@@ -21,16 +21,16 @@
         "iconPath": "assert/images/notify.png"
       },
       {
-        "pagePath": "pages/user/user",
-        "text": "我的",
-        "selectedIconPath": "assert/images/user.png",
-        "iconPath": "assert/images/user.png"
-      },
-      {
         "pagePath": "pages/gallery/gallery",
         "text": "颜值",
         "selectedIconPath": "assert/images/girl.png",
         "iconPath": "assert/images/girl.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "selectedIconPath": "assert/images/user.png",
+        "iconPath": "assert/images/user.png"
       }
     ]
   },

@@ -3,7 +3,10 @@
     <image class="logo" src="{{logoUrl}}"></image>
     <view class="center">
       <text class="title">{{title}}</text>
-      <text class="count">浏览量: {{count}}</text>
+      <view class="bottom">
+        <text class="count">浏览量: {{count}}</text>
+        <text class="date">{{date}}</text>
+      </view>
     </view>
     <view class="right">
       <image class="more" src="../../assert/images/rightArrow.png"></image>

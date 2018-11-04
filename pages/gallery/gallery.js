@@ -4,58 +4,73 @@ let { axios, api } = app;
 Page({
   data: {
     pageIndex: 0,
+    pageSize: 2,
     galleryList: [],
     // 模式
     // list 或者 detail
     mode: "list",
-    detail: undefined
+    detail: undefined,
+    isPullLock: false
   },
-  onLoad(options) {
-    console.log(options);
-    let index = wx.getStorageSync("galleryPageIndex") || 0;
-    this.setPageIndex(index);
-    this.fetchGallery();
+  onLoad() {
+    this.fetchGallery(this.data.pageIndex);
   },
   onPullDownRefresh() {
-    console.log("hi world");
-    this.fetchGallery();
-  },
-
-  setPageIndex(index) {
-    this.setData({ pageIndex: index });
-    wx.getStorageSync("galleryPageIndex", index);
+    let index = this.data.pageIndex++;
+    this.fetchGallery(index);
   },
 
   fetchGallery(index) {
-    let data = [
-      {
-        id: Math.floor(Math.random() * 1e8) + "",
-        type: "pic",
-        title: "帅哥",
-        count: 100,
-        logoUrl:
-          "https://api.puman.xyz/static/images/1/超凶/1F048D0787EF9BD64FDBCCAD34F0EE16.jpg",
-        resource: [
-          "https://api.puman.xyz/static/images/1/超凶/1F048D0787EF9BD64FDBCCAD34F0EE16.jpg",
-          "https://api.puman.xyz/static/images/1/超凶/2DACC2DE732B1435B77522B330397D8C.jpg",
-          "https://api.puman.xyz/static/images/1/超凶/74AB4DAF7743D485A7A93CC71BB03AF2.jpg"
-        ]
-      },
-      {
-        id: Math.floor(Math.random() * 1e8) + "",
-        type: "video",
-        title: "可爱的小姐姐颜值要逆天了呀",
-        count: 120,
-        logoUrl:
-          "https://api.puman.xyz/static/images/1/超凶/74AB4DAF7743D485A7A93CC71BB03AF2.jpg",
-        resource: ["http://172.20.10.3:1216/1.mp4"]
-      }
-    ];
-    let galleryList = [...this.data.galleryList, ...data];
-    this.setData({ galleryList });
+    // 锁定下拉
+    if (this.data.isPullLock) {
+      return;
+    }
+
+    this.setData({ isPullLock: true });
+    axios
+      .get({
+        url: api.game.gallery(),
+        data: {
+          pageIndex: index,
+          pageSize: this.data.pageSize
+        }
+      })
+      .then(res => {
+        wx.stopPullDownRefresh();
+
+        let data = res.data;
+        let list = data.list;
+
+        // 格式化list中date为文本
+        // eg: 时间戳 => 2017-9-8
+        list.forEach(n => {
+          n.dateText = this.formatDate(n.date);
+        });
+        console.log(data);
+        let galleryList = [...this.data.galleryList, ...list];
+        this.setData({ galleryList });
+
+        // 后续处理
+        // 解锁下拉
+        this.setData({ isPullLock: false });
+        // 如果确实获取了新数据,那么pageIndex+1
+        if (list && list.length) {
+          this.setData({ pageIndex: index + 1 });
+        }
+      });
   },
 
-  showDetail(e, d) {
+  // 增加一个浏览量
+  galleryCount(id) {
+    axios.post({
+      url: api.game.galleryCount(),
+      data: {
+        id
+      }
+    });
+  },
+
+  showDetail(e) {
     console.log("show detail", e);
     let id = e.detail.id;
     let data = this.data.galleryList.find(n => n.id === id);
@@ -63,6 +78,18 @@ Page({
       this.setData({
         detail: data,
         mode: "detail"
+      });
+
+      // 浏览量
+      this.galleryCount(id);
+      let list = this.data.galleryList;
+      list.forEach(n => {
+        if (n.id === id) {
+          n.count++;
+        }
+      });
+      this.setData({
+        galleryList: list
       });
     }
   },
@@ -76,5 +103,9 @@ Page({
     this.setData({
       mode: "list"
     });
+  },
+  formatDate(date) {
+    let d = new Date(date);
+    return [d.getFullYear(), d.getMonth() - 0 + 1, d.getDate()].join("-");
   }
 });

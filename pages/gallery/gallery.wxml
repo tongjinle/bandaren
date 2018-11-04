@@ -1,6 +1,7 @@
+<wxs src="./../../common/wxs/utils.wxs" module="utils" />
 <view class="gallery">
   <view wx:if="{{mode==='list'}}" wx:for="{{galleryList}}" wx:key="{{index}}" wx:for-item="item">
-    <gallery-item type="{{item.type}}" id="{{item.id}}" logoUrl="{{item.logoUrl}}" title="{{item.title}}" count="{{item.count}}" resource="{{item.resource}}" bind:showDetail="showDetail"></gallery-item>
+    <gallery-item type="{{item.type}}" id="{{item.id}}" logoUrl="{{item.logoUrl}}" title="{{item.title}}" count="{{item.count}}" date="{{item.dateText}}" resource="{{item.resource}}" bind:showDetail="showDetail"></gallery-item>
   </view>
   <view class="detail" wx:if="{{mode==='detail'}}">
     <gallery-item-detail bind:close="onCloseDetail" type="{{detail.type}}" resource="{{detail.resource}}" title="{{detail.title}}" count="{{item.count}}"></gallery-item-detail>
