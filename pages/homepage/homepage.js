@@ -42,6 +42,9 @@ Page({
     // 当前用户的热度贡献数组
     upvoteList: []
   },
+  onShow() {
+    this.getMypoint();
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -54,7 +57,7 @@ Page({
       return !!token;
     };
     let next = () => {
-      this.getMypoint();
+      // this.getMypoint();
       this.getCurrentNo().then(index => {
         this.currentIndex = index;
         if (index !== -1) {
